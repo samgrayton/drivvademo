@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Drivva Demo</h1>
+    <div id="roads"></div>
+    <script>
+      fetch('/api/roads')
+        .then(res => res.json())
+        .then(roads => {
+          document.getElementById('roads').innerHTML = 
+            roads.map(r => `<p>${r.name} (Difficulty: ${r.difficulty}/5)</p>`).join('');
+        });
+    </script>
+  </body>
+</html>
